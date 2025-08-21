@@ -174,10 +174,10 @@ a)    1
                 System.out.print("  ");
                 space++;
             } 
-            while (true);
-            int j =0, num =1;
+            while(true);
+            int j=0, num=1;
             do{
-                if (j > i) break;
+                if (j>i) break;
                 System.out.print(num + "   ");
                 num = num*(i-j) /(j+1);
                 j++;

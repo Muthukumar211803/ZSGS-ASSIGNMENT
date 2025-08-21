@@ -232,7 +232,128 @@ import java.util.*;
  
  
 
-		 
+/*10 Write a menu driven program to do following operation on two dimensional array A of size m x n. You should use user-defined methods which accept 2-D 
+array A, and its size m and n as arguments. The options are:
+1 To input elements into a matrix of size m x n
+2 To display elements of a matrix of size m x n
+3 Sum of all elements of a matrix of size m x n
+4 To display the row-wise sum of the matrix of size m x n
+5 To display the column-wise sum of the matrix of size m x n
+6 To create a transpose of the matrix of size n x m*/
+class MenuDrivenMatrix{
+	
+	public static void main(String args[]){
+		
+		Scanner sc=new Scanner(System.in);
+		
+		int row = sc.nextInt();
+		int col = sc.nextInt();
+		
+		int[][] matrix=new int[row][col];
+		
+		int option;
+		
+		do{
+			System.out.println("1. Input Element");
+			System.out.println("2. Display Matrix");
+			System.out.println("3. Sum of all Elements");
+			System.out.println("4. Row wise sum");
+			System.out.println("5. Column wise sum");
+			System.out.println("6. Exit");
+			
+			System.out.println("Enter the option: ");
+			option=sc.nextInt();
+			
+			switch(option){
+				case 1:
+					inputElements(matrix,row,col,sc);
+					break;
+				case 2:
+					display(matrix,row,col);
+					break;
+				case 3:
+					sumElements(matrix,row,col);
+					break;
+				case 4:
+					rowSum(matrix,row,col);
+					break;
+				case 5:
+					colSum(matrix,row,col);
+					break;
+				case 6:
+					transMatrix(matrix,row,col);
+					break;
+				case 7:
+					System.out.println("Exiting Program");
+					break;
+				default:
+					System.out.println("Incorrect Option");
+			}
+		}while(option!=7);
+	}
+	
+	static void inputElements(int[][] matrix,int row,int col,Scanner sc){
+		
+		for(int i=0;i<row;i++){
+			for(int j=0;j<col;j++){
+				matrix[i][j]=sc.nextInt();
+			}
+		}
+	}
+	
+	static void display(int[][] matrix,int row,int col){
+		
+		for(int i=0;i<row;i++){
+			for(int j=0;j<col;j++){
+				System.out.print(matrix[i][j]+ "\t");
+			}
+			System.out.println();
+		}
+	}
+	
+	static void sumElements(int[][] matrix,int row,int col){
+		
+		int sum=0;
+		for(int i=0;i<row;i++){
+			for(int j=0;j<col;j++){
+				sum=sum+matrix[i][j];
+			}
+		}
+		System.out.println("Sum of all Elements "+sum);
+	}
+	
+	static void rowSum(int[][] matrix,int row,int col){
+		
+		for(int i=0;i<row;i++){
+			int rowSum=0;
+			for(int j=0;j<col;j++){
+				rowSum=rowSum+matrix[i][j];
+			}
+			System.out.println("Row Sum: "+rowSum);
+		}
+	}
+	
+	static void colSum(int[][] matrix,int row,int col){
+		
+		for(int j=0;j<col;j++){
+			int colSum=0;
+			for(int i=0;i<row;i++){
+				colSum=colSum+matrix[i][j];
+			}
+			System.out.println("Column Sum: "+colSum);
+		}
+	}
+	
+	static void transMatrix(int[][] matrix,int row,int col){
+		
+		for(int j=0;j<col;j++){
+			for(int i=0;i<row;i++){
+				System.out.println(matrix[i][j]+"\t");
+			}
+			System.out.println();
+		}
+	}
+}		 
 
 
  
